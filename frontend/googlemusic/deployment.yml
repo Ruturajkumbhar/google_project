@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: googlemusic-deployment
+  labels:
+    app: googlemusic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: googlemusic
+  template:
+    metadata:
+      labels:
+        app: googlemusic
+    spec:
+      containers:
+      - name: googlemusic
+        image: 004657932016.dkr.ecr.us-east-1.amazonaws.com/shopping-site-googlemusic:2dfa536a25ccd1db852a54ff70e22fea59687630
+        ports:
+        - containerPort: 80
